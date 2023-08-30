@@ -1,8 +1,8 @@
 import java.util.Objects;
 
-public class Contato {
+public class Contato implements Comparable<Contato>{
     private String nome;
-    private int numero;
+    private long numero;
 
     public Contato(String nome, int numero) {
         this.nome = nome;
@@ -13,7 +13,7 @@ public class Contato {
         return nome;
     }
 
-    public int getNumero() {
+    public long getNumero() {
         return numero;
     }
 
@@ -43,5 +43,10 @@ public class Contato {
                 "nome='" + nome + '\'' +
                 ", numero=" + numero +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Contato c) {
+        return nome.compareToIgnoreCase(c.getNome());
     }
 }

@@ -1,5 +1,7 @@
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class AgendaContatos {
     private Set<Contato> contatoSet;
@@ -12,8 +14,15 @@ public class AgendaContatos {
         contatoSet.add(new Contato(nome, numero));
     }
 
-    public void exibirContatos() {
-        System.out.println(contatoSet);
+    public void exibirContatosPorNome() {
+        Set<Contato> contatosPorNome = new TreeSet<>(contatoSet);
+        System.out.println(contatosPorNome);
+    }
+
+    public void exibirContatosPorNumero() {
+        Set<Contato> contatosPorNumero = new TreeSet<>(Comparator.comparingLong(Contato::getNumero));
+        contatosPorNumero.addAll(contatoSet);
+        System.out.println(contatosPorNumero);
     }
 
     public Set<Contato> pesquisarPorNome(String nome) {
@@ -39,7 +48,7 @@ public class AgendaContatos {
     public static void main(String[] args) {
         AgendaContatos agendaContatos = new AgendaContatos();
 
-        agendaContatos.exibirContatos();
+        agendaContatos.exibirContatosPorNome();
 
         agendaContatos.adicionarContato("João", 123456789);
         agendaContatos.adicionarContato("Maria", 987654321);
@@ -48,7 +57,7 @@ public class AgendaContatos {
         agendaContatos.adicionarContato("Fernando", 77778888);
         agendaContatos.adicionarContato("Carolina", 55555555);
 
-        agendaContatos.exibirContatos();
+        agendaContatos.exibirContatosPorNome();
 
         System.out.println(agendaContatos.pesquisarPorNome("Maria"));
 
@@ -56,6 +65,6 @@ public class AgendaContatos {
         System.out.println("Contato atualizado: " + contatoAtualizado);
 
         System.out.println("Contatos na agenda após atualização:");
-        agendaContatos.exibirContatos();
+        agendaContatos.exibirContatosPorNumero();
     }
 }
