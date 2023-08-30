@@ -2,7 +2,7 @@
 Este projeto é uma simples implementação de uma agenda de contatos em Java. Ele permite que você adicione contatos com nomes e números de telefone, pesquise contatos por nome, atualize os números de telefone dos contatos existentes e exiba a lista de contatos. 
 
 ## Detalhes
-- Utiliza a estrutura de dados `Set` para armazenar os contatos, enfatizando a aprendizagem de conceitos de conjuntos em Java.
+- Utilizado a estrutura de dados `Set` para armazenar os contatos, enfatizando a aprendizagem de conceitos de conjuntos em Java.
 - Para um uso mais prático e eficiente em situações do mundo real, considere a utilização de um `Map` para associar nomes a números de telefone.
 
 ## Funcionalidades
